@@ -17,6 +17,12 @@ services:
     image: atlassian/confluence-server:latest
     container_name: confluence_app
     restart: unless-stopped
+    environment:
+      - TZ=Europe/Berlin
+      - PG_TZ=Europe/Berlin
+      - JVM_MINIMUM_MEMORY=2024m
+      - JVM_MAXIMUM_MEMORY=3072m
+      - JVM_RESERVED_CODE_CACHE_SIZE=512m
     volumes:
       - data:/var/atlassian/application-data/confluence
       - /etc/localtime:/etc/localtime:ro
